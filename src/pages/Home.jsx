@@ -96,7 +96,7 @@ const CampaignList = ({auctions}) => {
 
       <Grid2 container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         {auctions.map((auc)=> (
-
+         
           <Grid2 xs={6}>
             <ItemCampaignDemo nft_id={auc.nft_id} title={auc.title} timeout={auc.endAt} image={auc.img1_url} history={history}/>
           </Grid2>
@@ -135,6 +135,7 @@ export const Home = () => {
   const dispatch = useDispatch()
   const {auctions} = useSelector(state=>state.auction)
   const fist6Auctions = auctions.slice(0,6)
+  console.log('top 6 auctions: ',fist6Auctions);
   useEffect(() => {
     dispatch(getAuction());
   }, []);

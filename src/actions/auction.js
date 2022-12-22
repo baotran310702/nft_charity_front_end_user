@@ -22,7 +22,7 @@ export const getAuctionById = (id) => async (dispatch) => {
     const { data } = await api.getAuctionById(id);
     dispatch({
       type: FETCH_AUCTION_BY_ID,
-      payload: data
+      payload: data[0]
     });
   } catch (err) {
     console.log(err.message);

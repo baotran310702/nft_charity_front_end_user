@@ -82,7 +82,7 @@ export default function TabsList(props) {
           aria-label="basic tabs example"
         >
           <Tab label="Collection" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          <Tab label="News" {...a11yProps(1)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

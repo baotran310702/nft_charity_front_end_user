@@ -80,6 +80,34 @@ const StyledItemAuction = styled(Card)`
 
 const ItemAuction = ({ auc }) => {
   const history = useHistory();
+  
+  
+  const convertDate = (timeStamp)=>{
+    var intStamp = parseInt(timeStamp);
+
+    if(intStamp > Date.now()){
+      
+          var date = new Date(intStamp);
+      
+          var day = date.getDate();
+      
+          var hours = date.getHours();
+      
+          var min = date.getMinutes();
+      
+          const symbolDay = day > 1 ? ' days ' : ' day ';
+          const symbolHours = hours > 1 ? ' hours ' : ' hour ';
+          const symbolMinutes = min > 1 ? ' minutes ' : ' minute ';
+      
+          var endAt = `${day}${symbolDay}${hours}${symbolHours}${min}${symbolMinutes}`;
+          return endAt;
+    }
+    else{
+      return 'Ended';
+    }
+    
+  }
+  
 
   return (
     <StyledItemAuction>
@@ -105,7 +133,7 @@ const ItemAuction = ({ auc }) => {
         </Typography>
 
         <Typography variant="body1" className="auctionTimeLeft">
-          Time left: 1 day 2 hours 30 minutes
+          Time left: {convertDate(auc?.endAt)}
         </Typography>
 
         <Button

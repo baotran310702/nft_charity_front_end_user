@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://laravelback-production.up.railway.app/",
+  baseURL: "https://localhost:7271/",
 });
 
 // ==> token author
@@ -13,7 +13,8 @@ const API = axios.create({
 // });
 
 export const getCamp = () => API.get("/api/camp");
-export const getCampById = (id) => API.get(`/api/camp/${id}`);
-export const getAuction = () => API.get("/api/auction");
-export const getAuctionById = (id) => API.get(`/api/auction/${id}`);
+export const getCampById = (id) => API.get(`/api/camp/id?id=${id}`);
+
+export const getAuction = () => API.get('/api/auctionAll');
+export const getAuctionById = (id) => API.get(`/api/auction?id=${id}`);
 export const createTrans = (trans) => API.post(`/api/trans`, trans);

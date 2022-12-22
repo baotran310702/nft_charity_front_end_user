@@ -20,6 +20,7 @@ export default (state = initState, action) => {
         isLoading: false,
       };
     case FETCH_AUCTION_BY_ID:
+      console.log(action.payload);
       return {
         ...state,
         currAuction: action.payload,
@@ -28,7 +29,7 @@ export default (state = initState, action) => {
     case CREATE_AUCTION:
       return {
         ...state,
-        auctions: [...state.auctions, action.payload.auction],
+        auctions: [...state.auctions, action.payload],
         isLoading: false,
       };
 

@@ -38,7 +38,7 @@ export default (state = initState, action) => {
     case CREATE_CAMP:
       return {
         ...state,
-        campaigns: [...state.campaigns, action.payload.campaign],
+        campaigns: [...state.campaigns, action.payload],
         isLoading: false,
       };
     case EDIT_CAMP:

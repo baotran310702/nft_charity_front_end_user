@@ -234,6 +234,7 @@ const StyledHeaderTitle = styled(Box)`
 `;
 
 const HeaderTitle = ({ title }) => {
+
   return (
     <StyledHeaderTitle>
       <Typography className="title" variant="h4">
@@ -553,13 +554,16 @@ const Other = () => {
 };
 
 const AuctionDetail = () => {
+  const { nft_id } = useParams();
   const [loading, setLoading] = useState(false);
   const [text, setText] = useState("");
   const { currAuction } = useSelector((state) => state.auction);
+ 
   const { nftList, marketplaceContract, isLoading } = useSelector(
     (state) => state.solidity
   );
-  const { nft_id } = useParams();
+  const dispatch = useDispatch();
+ 
 
   const nft = nftList.filter((nft) => nft.id == nft_id)[0];
   let items = [];
@@ -607,12 +611,13 @@ const AuctionDetail = () => {
       tempMin;
     if (endAt < Date.now()) timeout = true;
   }
-
-  const dispatch = useDispatch();
+  
   useEffect(() => {
+    setLoading(true);
     dispatch(getAuctionById(nft_id));
+    setLoading(false);
   }, [nft_id]);
-
+  console.log('well',currAuction);
   return (
     <>
       {!currAuction || !nft ? (

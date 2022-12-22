@@ -189,10 +189,10 @@ export default function MyNFTInfo({
 
           {/* the dialog will appear when we click button donate */}
           <Dialog keepMounted open={open} onClose={handleClose}>
-            <DialogTitle>Transform NFT To System</DialogTitle>
+            <DialogTitle>Transfer NFT To System</DialogTitle>
             <DialogContent>
               <DialogContentText>
-                To transform NFT please enter short description and submit. We
+                To transfer NFT please enter short description and submit. We
                 thank you for your contribution.
               </DialogContentText>
               <TextField
